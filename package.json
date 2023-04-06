@@ -1,0 +1,27 @@
+{
+  "name": "TUAA-Release-Server",
+  "main": "src/server/index.ts",
+  "scripts": {
+    "start": "npx ts-node .",
+    "dev": "TUAARELEASEDEV=true npx nodemon --exec 'npx ts-node' ."
+  },
+  "author": {
+    "name": "Everly Scott",
+    "email": "everly@unusann.us",
+    "url": "https://everly.page"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "@fastify/nextjs": "^9.2.0",
+    "fastify": "^4.15.0",
+    "next": "^13.2.4",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "ts-node": "^10.9.1",
+    "typescript": "^5.0.3"
+  },
+  "devDependencies": {
+    "@types/node": "^18.15.11",
+    "nodemon": "^2.0.22"
+  }
+}
