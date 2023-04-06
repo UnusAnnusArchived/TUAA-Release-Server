@@ -22,12 +22,6 @@ app.register(staticPlugin, {
   decorateReply: false,
 });
 
-app.register(staticPlugin, {
-  root: path.join(__dirname, "..", "client", "custom_js"),
-  prefix: "/_/custom_js/",
-  decorateReply: false,
-});
-
 app.post("/_/login", (req, reply) => {
   reply.type("text/html");
   reply.send(
