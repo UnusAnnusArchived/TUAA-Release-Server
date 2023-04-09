@@ -1,4 +1,5 @@
 import { atom } from "recoil";
+import type { IColorScheme, IPocketBaseAuth } from "../../types";
 
 const localStorageEffect =
   (key) =>
@@ -16,8 +17,20 @@ const localStorageEffect =
     });
   };
 
-export const userAtom = atom({
+export const userAtom = atom<IPocketBaseAuth>({
   key: "pocketbase_auth",
   default: undefined,
   effects: [localStorageEffect("pocketbase_auth")],
+});
+
+export const colorSchemeAtom = atom<IColorScheme>({
+  key: "colorScheme",
+  default: "dark",
+  effects: [localStorageEffect("colorScheme")],
+});
+
+export const hamburgerOpen = atom<boolean>({
+  key: "hamburgerOpen",
+  default: false,
+  effects: [localStorageEffect("hamburgerOpen")],
 });

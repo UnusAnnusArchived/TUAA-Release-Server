@@ -6,19 +6,19 @@ import path from "path";
 
 const isDev = process.env.TUAARELEASEDEV === "true";
 
-const app = fastify({ logger: isDev });
+const app = fastify({ logger: isDev, pluginTimeout: 50000 });
 
 app.register(formbodyPlugin);
 
 app.register(staticPlugin, {
   root: path.join(__dirname, "..", "../", "node_modules"),
-  prefix: "/_/node_modules/",
+  prefix: "/_/public/node_modules/",
   decorateReply: false,
 });
 
 app.register(staticPlugin, {
   root: path.join(__dirname, "..", "client", "public"),
-  prefix: "/_/",
+  prefix: "/_/public/",
   decorateReply: false,
 });
 
@@ -27,7 +27,7 @@ app.post("/_/login", (req, reply) => {
   reply.send(
     `<script>window.userToken = "${
       (req.body as any).token
-    }"</script><script type="module" src="/_/custom_js/login.js"></script>`
+    }"</script><script type="module" src="/_/public/custom_js/login.js"></script>`
   );
 });
 

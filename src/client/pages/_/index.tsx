@@ -1,30 +1,11 @@
-import { useRecoilState } from "recoil";
-import { userAtom } from "../../src/atoms";
+import { Typography } from "@mui/material";
+import Layout from "../../components/layout";
 
-const Home = () => {
-  const [currentUser, setCurrentUser] = useRecoilState(userAtom);
-
-  const handleLogout = () => {
-    setCurrentUser(null);
-  };
-
+const Home: React.FC = () => {
   return (
-    <>
-      {currentUser ? (
-        <>
-          <p>Email: {currentUser.model.email}</p>
-          <a href="#" onClick={handleLogout}>
-            logout
-          </a>
-        </>
-      ) : (
-        <>
-          <a href="http://localhost:3000/external-login?redirectUrl=http://localhost:8876/_/login&imageUrl=/ua.png&appName=TUAA%20App%20Releases">
-            login
-          </a>
-        </>
-      )}
-    </>
+    <Layout>
+      <Typography>Hi</Typography>
+    </Layout>
   );
 };
 
